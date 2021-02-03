@@ -1,6 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+
 html, body {
+    background-color: #EAF2EF;
+    color: #005A5C !important;
     height: 100%;
 }
 
+// Bootstrap Overrides
+$font-family-sans-serif: system-ui, -apple-system, 'Nunito Sans', sans-serif;
+
 // Bootstrap and its default variables
 @import "../node_modules/bootstrap/scss/bootstrap";
+
+// Bearline Font
+.bearline {
+    color: #941651;
+    font-family: 'Bearline Regular';
+}
