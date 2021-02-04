@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-main-form',
@@ -6,10 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-form.component.scss']
 })
 export class MainFormComponent implements OnInit {
+  gameForm = this.fb.group({
+    babyPotion: this.fb.group({
+      mamaScoop: [''],
+      papaScoop: [''],
+      ollieScoop: [''],
+      yield: this.fb.group({
+        weight: [''],
+        length: ['']
+      })
+    })
+  })
 
-  constructor() { }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
   }
 
+  onSubmit() {
+    console.log('')
+  }
 }

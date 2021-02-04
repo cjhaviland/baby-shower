@@ -1,19 +1,33 @@
 <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
+  <div class="carousel-inner">
+    <ol class="carousel-indicators">
+      <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
+      <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
+    </ol>
+    <form [formGroup]="gameForm" (ngSubmit)="onSubmit()">
       <section class="carousel-item active">
-        <p>
-            Since we can't be together in person to celebrate
-        </p>
-        <p class="bearline h1 my-3">
-            Our Little Witch
-        </p>
-        <p>
-            We thought it would be fun to play some games with everyone through the internet!
-        </p>
-        <ol class="carousel-indicators">
-          <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
-        </ol>
-    </section>
+        <p>Since we can't be together in person to celebrate</p>
+        <h1 class="bearline my-3">Our Little Witch</h1>
+        <p>We thought it would be fun to play some games with everyone through the internet!</p>
+      </section>
+      <section class="carousel-item" formGroupName="babyPotion">
+        <h1 class="bearline my-3">
+            Baby Potion Recipe
+        </h1>
+        <div>
+          Ingredients:
+          <ol>
+            <li>1 scoop of Mama's</li>
+            <li><small>1/2</small> cup of Daddy's</li>
+            <li>1 dash of Oliver's</li>
+            <li>1 scoop of Mama's</li>
+          </ol>
+        </div>
+
+        <label>Directions:</label>
+        <label>Yield:</label>
+      </section>
+    </form>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
