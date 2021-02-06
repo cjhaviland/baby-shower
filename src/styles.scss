@@ -18,6 +18,10 @@ html, body, .grid-container {
     margin: 0;
 }
 
+a {
+    color: $secondary
+}
+
 button {
     display: inline-block;
     font-family: $font-family-sans-serif;
@@ -30,6 +34,7 @@ button {
     border: 1px solid $primary;
     border-radius: 0.5rem;
     padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
 
     &:focus {
         outline: none;

@@ -9,8 +9,8 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./main-form.component.scss']
 })
 export class MainFormComponent implements OnInit {
-  activeSection = 3
-  sectionCount = 4
+  activeSection = 0
+  sectionCount = 6
 
   faHeart = faHeart
   farHeart = farHeart
@@ -69,7 +69,7 @@ export class MainFormComponent implements OnInit {
       ollieScoop: [''],
       yield: this.fb.group({
         weight: [''],
-        length: ['', Validators.required, Validators.pattern("\d+\"")]
+        length: ['']
       })
     }),
     birthDateGuess: this.fb.group({
@@ -89,7 +89,8 @@ export class MainFormComponent implements OnInit {
       turnedThirty: [''],
       acidReflux: [''],
       mostUltrasounds: [''],
-    })
+    }),
+    phoneNumber: ['']
   })
 
   constructor(private fb: FormBuilder) { }
@@ -98,7 +99,7 @@ export class MainFormComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('')
+    console.log(this.gameForm.value)
   }
 
   onPrev() {
