@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-main-form',
@@ -7,6 +7,9 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./main-form.component.scss']
 })
 export class MainFormComponent implements OnInit {
+  activeSection = 2
+  sectionCount = 3
+
   gameForm = this.fb.group({
     babyPotion: this.fb.group({
       mamaScoop: [''],
@@ -14,8 +17,13 @@ export class MainFormComponent implements OnInit {
       ollieScoop: [''],
       yield: this.fb.group({
         weight: [''],
-        length: ['']
+        length: ['', Validators.required, Validators.pattern("\d+\"")]
       })
+    }),
+    birthDateGuess: this.fb.group({
+      birthMonth: [''],
+      birthDate: [''],
+      name: ['']
     })
   })
 
@@ -26,5 +34,17 @@ export class MainFormComponent implements OnInit {
 
   onSubmit() {
     console.log('')
+  }
+
+  onPrev() {
+    if (this.activeSection > 0) {
+      this.activeSection--
+    }
+  }
+
+  onNext() {
+    if (this.activeSection + 1 < this.sectionCount){
+      this.activeSection++
+    }
   }
 }

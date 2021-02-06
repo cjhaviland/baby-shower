@@ -1,40 +1,116 @@
-<div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <ol class="carousel-indicators">
-      <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
-      <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
-    </ol>
-    <form [formGroup]="gameForm" (ngSubmit)="onSubmit()">
-      <section class="carousel-item active">
-        <p>Since we can't be together in person to celebrate</p>
-        <h1 class="bearline my-3">Our Little Witch</h1>
-        <p>We thought it would be fun to play some games with everyone through the internet!</p>
-      </section>
-      <section class="carousel-item" formGroupName="babyPotion">
-        <h1 class="bearline my-3">
-            Baby Potion Recipe
-        </h1>
-        <div>
-          Ingredients:
-          <ol>
-            <li>1 scoop of Mama's</li>
-            <li><small>1/2</small> cup of Daddy's</li>
-            <li>1 dash of Oliver's</li>
-            <li>1 scoop of Mama's</li>
-          </ol>
-        </div>
-
-        <label>Directions:</label>
-        <label>Yield:</label>
-      </section>
-    </form>
+<form [formGroup]="gameForm" (ngSubmit)="onSubmit()">
+  <!-- Section 0 START -->
+  <section *ngIf="activeSection === 0" class="text-centered">
+    <p>Since we can't be together in person to celebrate</p>
+    <h1 class="bearline">Our Little Witch</h1>
+    <p>We thought it would be fun to play some games with everyone through the internet!</p>
+  </section>
+  <!-- Section 0 END -->
+  <!-- Section 1 START -->
+  <section *ngIf="activeSection === 1" formGroupName="babyPotion">
+    <h1 class="bearline">
+        Baby Potion Recipe
+    </h1>
+    <div>
+      <h5>
+        Ingredients:
+      </h5>
+      <ul>
+        <li>
+          1 scoop of Mama's
+          <div class="input-group">
+            <input type="text" formControlName="mamaScoop" id="mamaScoop">
+            <label aria-label="One scoop of mama feature" for="mamaScoop">
+              (feature)
+            </label>
+          </div>
+        </li>
+        <li>
+          <small>1/2</small> cup of Daddy's
+          <div class="input-group">
+            <input type="text" formControlName="papaScoop" id="papaScoop">
+            <label aria-label="half cup of daddy feature" for="papaScoop">
+              (feature)
+            </label>
+          </div>
+        </li>
+        <li>
+          1 dash of Oliver's
+          <div class="input-group">
+            <input type="text" formControlName="ollieScoop" id="ollieScoop">
+            <label aria-label="one dash of ollie feature" for="ollieScoop">
+              (feature)
+            </label>
+          </div>
+        </li>
+        <li>1tbs of Love</li>
+      </ul>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </a>
-</div>
+    <div>
+      <h5>Directions:</h5>
+      <ol class="d-inline-block">
+        <li>Add ingredients to cauldron.</li>
+        <li>Stir clockwise.</li>
+        <li>Bottle and store for 9 months.</li>
+      </ol>
+    </div>
+    <div>
+      <h5>Yield:</h5>
+      <div formGroupName="yield">
+        One beautiful
+        <div class="input-group">
+          <input type="text" formControlName="weight" id="babyWeight">
+          <label aria-label="baby weight" for="babyWeight">
+            (lb, oz)
+          </label>
+        </div>
+        <div class="input-group">
+          <input type="text" formControlName="length" id="babyLength">
+          <label aria-label="baby length" for="babyLength">
+            (in)
+          </label>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Section 1 END -->
+  <!-- Section 3 START -->
+  <section *ngIf="activeSection === 2" formGroupName="birthDateGuess">
+    <h1 class="bearline">
+      Guess the Birth Date
+    </h1>
+    
+    <div class="text-centered">
+      <p>
+        Fill in your guess so we can add it to our calendar!
+      </p>
+      <div>
+        <label aria-label="birth month guess" for="birthMonth">
+          Month:
+        </label>
+        <input type="text" formControlName="birthMonth" id="birthMonth"> 
+      </div>
+      <div class="date-box">
+        <span class="date-box_date">Date</span>
+        <span class="date-box_name">Your Name</span>
+        <input class="birth-date-input" type="text" formControlName="birthDate" id="birthDate" aria-label="birth date guess" max="2">
+        <input class="name-input" type="text" formControlName="name" id="name" aria-label="Your name input">
+      </div>
+      <small>
+        (Hint: Our estimate due date is March 12<sup>th</sup>, since she is an IVF baby we most likely won't be allowed to go past 40 weeks.)
+      </small>
+    </div>
+
+  </section>
+  <!-- Section 3 END -->
+
+  <!-- Section # START -->
+  <!-- <section *ngIf="activeSection === #" formGroupName="babyPotion">
+  </section> -->
+    <!-- Section # END -->
+
+  <div class="button-group">
+    <button type="button" (click)="onPrev()">Prev</button>
+    <button type="button" (click)="onNext()">Next</button>
+  </div>
+</form>
