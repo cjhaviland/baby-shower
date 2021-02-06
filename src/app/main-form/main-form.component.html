@@ -103,11 +103,43 @@
 
   </section>
   <!-- Section 3 END -->
-
-  <!-- Section # START -->
-  <!-- <section *ngIf="activeSection === #" formGroupName="babyPotion">
-  </section> -->
-    <!-- Section # END -->
+  <!-- Section 4 START -->
+  <section *ngIf="activeSection === 3" formGroupName="guessingGame">
+    <h1 class="bearline">
+      Oliver or Baby Girl
+    </h1>
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>1<sup>st</sup></th>
+          <th>2<sup>nd</sup></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of ollieOrBaby">
+          <td>
+            {{ row.statement }}
+          </td>
+          <td>
+            <label class="custom-radio">
+              <input type="radio" value="ollie" [formControlName]="row.formControlName">
+              <fa-icon class="custom-radio-unchecked" [icon]="farHeart"></fa-icon>
+              <fa-icon class="custom-radio-checked" [icon]="faHeart"></fa-icon>
+            </label>
+          </td>
+          <td>
+            <label class="custom-radio">
+              <input type="radio" value="baby" [formControlName]="row.formControlName">
+              <fa-icon class="custom-radio-unchecked" [icon]="farHeart"></fa-icon>
+              <fa-icon class="custom-radio-checked" [icon]="faHeart"></fa-icon>
+            </label>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <!-- Section 4 END -->
 
   <div class="button-group">
     <button type="button" (click)="onPrev()">Prev</button>

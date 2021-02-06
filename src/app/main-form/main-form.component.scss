@@ -4,6 +4,19 @@
     margin: auto auto;
 }
 
+table {
+    border-collapse: separate;
+    border-spacing: 0.5rem 1rem;
+
+    th {
+        text-align: center;
+    }
+
+    td:nth-child(2), td:nth-child(3) {
+        text-align: center;
+    }
+}
+
 .input-group {
     display: inline-flex;
     flex-direction: column;

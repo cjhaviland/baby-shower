@@ -1,0 +1,31 @@
+@import '../styles/variables';
+
+/* Customize the label (the container) */
+.custom-radio {
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    /* On mouse-over, add a grey background color */
+    &:hover input ~ .custom-radio-unchecked {
+            color: $secondary;
+    }
+
+    & input ~ .custom-radio-checked {
+        display: none;
+    }
+
+    /* When the radio button is checked, show the checked icon */
+    & input:checked ~ {
+        .custom-radio-checked {
+            color: $primary;
+            display: initial;
+        }
+
+        .custom-radio-unchecked {
+            display: none;
+        }
+    }
+  }
