@@ -57,6 +57,12 @@ input[type="text"] {
     }
 }
 
+input[type="radio"],
+input[type="checkbox"] {
+  appearance: none;
+  display: none
+}
+
 // Classes
 .text-centered {
     text-align: center;
