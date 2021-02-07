@@ -1,0 +1,41 @@
+/*
+ * Layout
+*/
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 0.5fr 2fr 0.5fr;
+  grid-template-areas:
+    "header header header header"
+    "main main main main"
+    "footer footer footer footer";
+}
+
+.header { 
+  align-items: flex-end;
+  grid-area: header; 
+}
+
+.footer { 
+  align-items: flex-start;
+  grid-area: footer; 
+}
+
+.header, .footer {
+  display: flex;
+
+  img {
+    display: block;
+    height: auto;
+    max-width: 50%;
+    margin: 0 auto;
+  }
+}
+
+.main { 
+  grid-area: main;
+  display: flex;
+  max-width: 50%;
+  margin: 0 auto;
+}

@@ -1,0 +1,178 @@
+<form [formGroup]="gameForm" (ngSubmit)="onSubmit()" autocomplete="off">
+  <!-- Section 0 START -->
+  <section *ngIf="activeSection === 0" class="text-centered">
+    <p>Since we can't be together in person to celebrate</p>
+    <h1 class="bearline">Our Little Witch</h1>
+    <p>We thought it would be fun to play some games with everyone through the internet!</p>
+  </section>
+  <!-- Section 0 END -->
+  <!-- Section 1 START -->
+  <section *ngIf="activeSection === 1" formGroupName="babyPotion">
+    <h1 class="bearline">
+        Baby Potion Recipe
+    </h1>
+    <div>
+      <h5>
+        Ingredients:
+      </h5>
+      <ul>
+        <li>
+          1 scoop of Mama's
+          <div class="input-group">
+            <input type="text" formControlName="mamaScoop" id="mamaScoop">
+            <label aria-label="One scoop of mama feature" for="mamaScoop">
+              (feature)
+            </label>
+          </div>
+        </li>
+        <li>
+          <small>1/2</small> cup of Daddy's
+          <div class="input-group">
+            <input type="text" formControlName="papaScoop" id="papaScoop">
+            <label aria-label="half cup of daddy feature" for="papaScoop">
+              (feature)
+            </label>
+          </div>
+        </li>
+        <li>
+          1 dash of Oliver's
+          <div class="input-group">
+            <input type="text" formControlName="ollieScoop" id="ollieScoop">
+            <label aria-label="one dash of ollie feature" for="ollieScoop">
+              (feature)
+            </label>
+          </div>
+        </li>
+        <li>1tbs of Love</li>
+      </ul>
+    </div>
+    <div>
+      <h5>Directions:</h5>
+      <ol class="d-inline-block">
+        <li>Add ingredients to cauldron.</li>
+        <li>Stir clockwise.</li>
+        <li>Bottle and store for 9 months.</li>
+      </ol>
+    </div>
+    <div>
+      <h5>Yield:</h5>
+      <div formGroupName="yield">
+        One beautiful
+        <div class="input-group">
+          <input type="text" formControlName="weight" id="babyWeight">
+          <label aria-label="baby weight" for="babyWeight">
+            (lb, oz)
+          </label>
+        </div>
+        <div class="input-group">
+          <input type="text" formControlName="length" id="babyLength">
+          <label aria-label="baby length" for="babyLength">
+            (in)
+          </label>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Section 1 END -->
+  <!-- Section 2 START -->
+  <section *ngIf="activeSection === 2" formGroupName="birthDateGuess">
+    <h1 class="bearline">
+      Guess the Birth Date
+    </h1>
+    
+    <div class="text-centered">
+      <p>
+        Fill in your guess so we can add it to our calendar!
+      </p>
+      <div>
+        <label aria-label="birth month guess" for="birthMonth">
+          Month:
+        </label>
+        <input type="text" formControlName="birthMonth" id="birthMonth"> 
+      </div>
+      <div class="date-box">
+        <span class="date-box_date">Date</span>
+        <span class="date-box_name">Your Name</span>
+        <input class="birth-date-input" type="text" formControlName="birthDate" id="birthDate" aria-label="birth date guess" max="2">
+        <input class="name-input" type="text" formControlName="name" id="name" aria-label="Your name input">
+      </div>
+      <small>
+        (Hint: Our estimated due date is March 12<sup>th</sup>, since she is an IVF baby we most likely won't be allowed to go past 40 weeks.)
+      </small>
+    </div>
+
+  </section>
+  <!-- Section 2 END -->
+  <!-- Section 3 START -->
+  <section *ngIf="activeSection === 3" formGroupName="guessingGame">
+    <h1 class="bearline">
+      Oliver or Baby Girl
+    </h1>
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>1<sup>st</sup></th>
+          <th>2<sup>nd</sup></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of ollieOrBaby">
+          <td>
+            {{ row.statement }}
+          </td>
+          <td>
+            <label class="custom-radio">
+              <input type="radio" value="ollie" [formControlName]="row.formControlName">
+              <fa-icon class="custom-radio-unchecked" [icon]="farHeart"></fa-icon>
+              <fa-icon class="custom-radio-checked" [icon]="faHeart"></fa-icon>
+            </label>
+          </td>
+          <td>
+            <label class="custom-radio">
+              <input type="radio" value="baby" [formControlName]="row.formControlName">
+              <fa-icon class="custom-radio-unchecked" [icon]="farHeart"></fa-icon>
+              <fa-icon class="custom-radio-checked" [icon]="faHeart"></fa-icon>
+            </label>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <!-- Section 3 END -->
+  <!-- Section 4 START -->
+  <section *ngIf="activeSection === 4" class="text-centered">
+    <h1 class="bearline">Diaper Raffle</h1>
+    <p>To enter pleae send a pack of diapers by the end of February and you could win a $25 Target gift card!</p>
+    <p>To make it easier to shop, you can visit: <a href="http://tgt.gifts/diapersforbabyhaviland" target="_blank">Diapers for Baby Haviland</a></p>
+  </section>
+  <!-- Section 4 END -->
+  <!-- Section 5 START -->
+  <section *ngIf="activeSection === 5" class="text-centered">
+    <h1 class="bearline">Thank You for Playing!</h1>
+    <p>Please submit your answers before the end of February. We will share a video on Facebook announcing the winners!</p>
+    <p>
+      (If you don't use Facebook please provide your phone number here so we can call/text you:
+      <label aria-label="your phone number">
+        <input type="text" formControlName="phoneNumber" id="phoneNumber">
+      </label>
+    </p>
+    <div class="button-group">
+      <button type="submit" [disabled]="success">
+        <span *ngIf="!loading && !success">Submit</span>
+        <span *ngIf="!loading && success">Submitted!</span>
+        <fa-icon *ngIf="loading" [icon]="faBaby" [spin]="true"></fa-icon>
+      </button>
+    </div>
+    <div>
+      Much Love From, <br>
+      Camille, CJ, Oliver + Baby Haviland
+    </div>
+  </section>
+  <!-- Section 5 END -->
+
+  <div class="button-group">
+    <button *ngIf="activeSection !== 0" type="button" (click)="onPrev()" (keyup.arrowleft)="onPrev()">Prev</button>
+    <button *ngIf="activeSection !== 5" type="button" (click)="onNext()" (keyup.arrowright)="onNext()">Next</button>
+  </div>
+</form>

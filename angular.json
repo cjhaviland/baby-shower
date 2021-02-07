@@ -55,7 +55,10 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": ["./app/styles"]
+            }
           },
           "configurations": {
             "production": {
@@ -149,5 +152,5 @@
       }
     }
   },
-  "defaultProject": "BabyShower"
+  "defaultProject": "BabyShower",
 }
