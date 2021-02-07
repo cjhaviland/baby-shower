@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
@@ -10,6 +10,14 @@ import { DatabaseService, DbForm } from '../database.service';
   styleUrls: ['./main-form.component.scss']
 })
 export class MainFormComponent implements OnInit {
+  @HostListener('window:keydown', ['$event'])
+  handleKeydown(event: KeyboardEvent): void {
+    if (event.key === 'ArrowLeft') {
+      this.onPrev();
+    } else if (event.key === 'ArrowRight') {
+      this.onNext();
+    }
+  }
   activeSection = 0
   sectionCount = 6
 

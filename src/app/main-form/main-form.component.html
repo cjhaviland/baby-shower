@@ -92,9 +92,15 @@
       </div>
       <div class="date-box">
         <span class="date-box_date">Date</span>
-        <span class="date-box_name">Your Name</span>
+        <!-- <span class="date-box_name">Your Name</span> -->
         <input class="birth-date-input" type="text" formControlName="birthDate" id="birthDate" aria-label="birth date guess" max="2">
-        <input class="name-input" type="text" formControlName="name" id="name" aria-label="Your name input">
+        <!-- <input class="name-input" type="text" formControlName="name" id="name" aria-label="Your name input"> -->
+        <div class="input-group name-input">
+          <input type="text" formControlName="name" id="name">
+          <label aria-label="Your name" for="name">
+            (Your Name)
+          </label>
+        </div>
       </div>
       <small>
         (Hint: Our estimated due date is March 12<sup>th</sup>, since she is an IVF baby we most likely won't be allowed to go past 40 weeks.)
@@ -168,7 +174,7 @@
   <!-- Section 5 END -->
 
   <div class="button-group">
-    <button *ngIf="activeSection !== 0" type="button" (click)="onPrev()">Prev</button>
-    <button *ngIf="activeSection !== 5" type="button" (click)="onNext()">Next</button>
+    <button *ngIf="activeSection !== 0" type="button" (click)="onPrev()" (keyup.arrowleft)="onPrev()">Prev</button>
+    <button *ngIf="activeSection !== 5" type="button" (click)="onNext()" (keyup.arrowright)="onNext()">Next</button>
   </div>
 </form>
