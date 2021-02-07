@@ -26,6 +26,7 @@ button {
     display: inline-block;
     font-family: $font-family-sans-serif;
     color: $primary;
+    cursor: pointer;
     text-align: center;
     text-decoration: none;
     vertical-align: middle;
@@ -38,6 +39,16 @@ button {
 
     &:focus {
         outline: none;
+    }
+
+    &:hover {
+        background-color: rgba($primary, .2);
+    }
+
+    &:disabled {
+        background-color: rgba($primary, .2);
+        color: $secondary;
+        cursor: not-allowed;
     }
 }
 

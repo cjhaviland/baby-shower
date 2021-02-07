@@ -1,8 +1,9 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faBaby, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { DatabaseService, DbForm } from '../database.service';
+import { LoaderService } from '../loader.service';
 
 @Component({
   selector: 'app-main-form',
@@ -23,6 +24,10 @@ export class MainFormComponent implements OnInit {
 
   faHeart = faHeart
   farHeart = farHeart
+  faBaby = faBaby
+
+  loading = false
+  success = false
 
   ollieOrBaby = [
     {
@@ -102,7 +107,17 @@ export class MainFormComponent implements OnInit {
     phoneNumber: ['']
   })
 
-  constructor(private fb: FormBuilder, private db: DatabaseService) { }
+  constructor(private fb: FormBuilder, private db: DatabaseService, private loader: LoaderService) {
+    this.loader.isLoading.subscribe((v) => {
+      console.log(v)
+      this.loading = v
+    })
+
+    this.loader.isSuccess.subscribe((s) => {
+      console.log(s)
+      this.success = s
+    })
+   }
 
   ngOnInit(): void {
   }
