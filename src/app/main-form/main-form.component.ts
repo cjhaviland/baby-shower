@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { DatabaseService, DbForm } from '../database.service';
 
 @Component({
   selector: 'app-main-form',
@@ -93,13 +94,17 @@ export class MainFormComponent implements OnInit {
     phoneNumber: ['']
   })
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private db: DatabaseService) { }
 
   ngOnInit(): void {
   }
 
   onSubmit() {
-    console.log(this.gameForm.value)
+    let formBody: DbForm = {
+      name: this.gameForm.controls.birthDateGuess.get('name')?.value,
+      form: this.gameForm.value
+    }
+    this.db.postForm(formBody).subscribe()
   }
 
   onPrev() {
