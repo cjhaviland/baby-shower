@@ -108,12 +108,10 @@ export class MainFormComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private db: DatabaseService, private loader: LoaderService) {
     this.loader.isLoading.subscribe((v) => {
-      console.log(v)
       this.loading = v
     })
 
     this.loader.isSuccess.subscribe((s) => {
-      console.log(s)
       this.success = s
 
       if (s) {
@@ -123,6 +121,7 @@ export class MainFormComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    console.log('EXCUSE ME! But what are you doing in here? You should be filling out that form!')
   }
 
   get name() {
