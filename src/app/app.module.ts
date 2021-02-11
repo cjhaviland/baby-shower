@@ -8,11 +8,13 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoaderInterceptorService } from './loader-interceptor.service';
 import { AppRoutingModule } from './app-routing.module';
+import { ReviewComponent } from './main-form/pages/review/review.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainFormComponent
+    MainFormComponent,
+    ReviewComponent
   ],
   imports: [
     BrowserModule,
