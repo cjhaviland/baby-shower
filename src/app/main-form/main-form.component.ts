@@ -77,6 +77,7 @@ export class MainFormComponent implements OnInit {
   ]
 
   gameForm = this.fb.group({
+    name: ['', [Validators.required]],
     babyPotion: this.fb.group({
       mamaScoop: [''],
       papaScoop: [''],
@@ -102,7 +103,6 @@ export class MainFormComponent implements OnInit {
       acidReflux: [''],
       mostUltrasounds: [''],
     }),
-    name: [''],
     phoneNumber: ['']
   })
 
@@ -125,6 +125,10 @@ export class MainFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  get name() {
+    return this.gameForm.controls.name
+  }
+
   onSubmit() {
     let formBody: DbForm = {
       name: this.gameForm.controls.birthDateGuess.get('name')?.value,
@@ -141,6 +145,10 @@ export class MainFormComponent implements OnInit {
 
   onNext() {
     if (this.activeSection + 1 < this.sectionCount){
+      if (this.activeSection > 0 && this.name.invalid) {
+        this.name.markAsTouched()
+        return
+      }
       this.activeSection++
     }
   }

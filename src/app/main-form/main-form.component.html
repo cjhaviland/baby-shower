@@ -11,8 +11,11 @@
     <h1 class="bearline">To Get Started</h1>
     <p>Click the line below, type your name and click next!</p>
     <label aria-label="Your name">
-      <input type="text" formControlName="name">
+      <input type="text" formControlName="name" required>
     </label>
+    <p *ngIf="name.invalid && (name.dirty || name.touched)" class="text-secondary">
+      <small>Name is required!</small>
+    </p>
   </section>
   <!-- Section 1 END -->
   <!-- Section 2 START -->
