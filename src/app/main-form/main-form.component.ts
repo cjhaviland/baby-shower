@@ -19,7 +19,7 @@ export class MainFormComponent implements OnInit {
       this.onNext();
     }
   }
-  activeSection = 0
+  activeSection = 2
   sectionCount = 6
 
   faHeart = faHeart

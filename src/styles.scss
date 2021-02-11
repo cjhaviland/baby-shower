@@ -68,6 +68,22 @@ input[type="text"] {
     }
 }
 
+input[type="date"] {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid $primary;
+    color: $primary;
+    font-family: $font-family-sans-serif;
+    margin-left: 0.5rem;
+    padding-left: 0.5rem;
+    text-align: center;
+
+    &:focus {
+        border-color: $secondary;
+        outline: 0;
+    }
+}
+
 input[type="radio"],
 input[type="checkbox"] {
   appearance: none;
@@ -91,4 +107,8 @@ input[type="checkbox"] {
     display: flex;
     justify-content: space-evenly;
     margin-top: 2rem;
+}
+
+.mb {
+    margin-bottom: 0.5rem;
 }
