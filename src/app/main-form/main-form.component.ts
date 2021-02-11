@@ -15,7 +15,7 @@ export class MainFormComponent implements OnInit {
   handleKeydown(event: KeyboardEvent): void {
     if (event.key === 'ArrowLeft') {
       this.onPrev();
-    } else if (event.key === 'ArrowRight') {
+    } else if (event.key === 'ArrowRight' && this.activeSection <= 3) {
       this.onNext();
     }
   }
@@ -116,6 +116,10 @@ export class MainFormComponent implements OnInit {
     this.loader.isSuccess.subscribe((s) => {
       console.log(s)
       this.success = s
+
+      if (s) {
+        this.onNext()
+      }
     })
    }
 

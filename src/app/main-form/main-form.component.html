@@ -142,13 +142,6 @@
   <!-- Section 3 END -->
   <!-- Section 4 START -->
   <section *ngIf="activeSection === 4" class="text-centered">
-    <h1 class="bearline">Diaper Raffle</h1>
-    <p>To enter pleae send a pack of diapers by the end of February and you could win a $25 Target gift card!</p>
-    <p>To make it easier to shop, you can visit: <a href="http://tgt.gifts/diapersforbabyhaviland" target="_blank">Diapers for Baby Haviland</a></p>
-  </section>
-  <!-- Section 4 END -->
-  <!-- Section 5 START -->
-  <section *ngIf="activeSection === 5" class="text-centered">
     <h1 class="bearline">Thank You for Playing!</h1>
     <p>Please submit your answers before the end of February. We will share a video on Facebook announcing the winners!</p>
     <p>
@@ -169,10 +162,17 @@
       Camille, CJ, Oliver + Baby Haviland
     </div>
   </section>
+  <!-- Section 4 END -->
+  <!-- Section 5 START -->
+  <section *ngIf="activeSection === 5" class="text-centered">
+    <h1 class="bearline">Diaper Raffle</h1>
+    <p>To enter please send a pack of diapers by the end of February and you could win a $25 Target gift card!</p>
+    <p>To make it easier to shop, you can visit: <a href="http://tgt.gifts/diapersforbabyhaviland" target="_blank">Diapers for Baby Haviland</a></p>
+  </section>
   <!-- Section 5 END -->
 
   <div class="button-group">
-    <button *ngIf="activeSection !== 0" type="button" (click)="onPrev()" (keyup.arrowleft)="onPrev()">Prev</button>
-    <button *ngIf="activeSection !== 5" type="button" (click)="onNext()" (keyup.arrowright)="onNext()">Next</button>
+    <button *ngIf="activeSection > 0 && activeSection < 5" type="button" (click)="onPrev()" (keyup.arrowleft)="onPrev()">Prev</button>
+    <button *ngIf="activeSection < 4" type="button" (click)="onNext()" (keyup.arrowright)="onNext()">Next</button>
   </div>
 </form>
