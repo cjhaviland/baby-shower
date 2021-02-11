@@ -7,14 +7,23 @@
   </section>
   <!-- Section 0 END -->
   <!-- Section 1 START -->
-  <section *ngIf="activeSection === 1" formGroupName="babyPotion">
+  <section *ngIf="activeSection === 1" class="text-centered">
+    <h1 class="bearline">To Get Started</h1>
+    <p>Click the line below, type your name and click next!</p>
+    <label aria-label="Your name">
+      <input type="text" formControlName="name">
+    </label>
+  </section>
+  <!-- Section 1 END -->
+  <!-- Section 2 START -->
+  <section *ngIf="activeSection === 2" formGroupName="babyPotion" class="baby-potion">
     <h1 class="bearline">
         Baby Potion Recipe
     </h1>
     <div>
-      <h5>
+      <h6>
         Ingredients:
-      </h5>
+      </h6>
       <ul>
         <li>
           1 scoop of Mama's
@@ -47,7 +56,7 @@
       </ul>
     </div>
     <div>
-      <h5>Directions:</h5>
+      <h6>Directions:</h6>
       <ol class="d-inline-block">
         <li>Add ingredients to cauldron.</li>
         <li>Stir clockwise.</li>
@@ -55,7 +64,7 @@
       </ol>
     </div>
     <div>
-      <h5>Yield:</h5>
+      <h6>Yield:</h6>
       <div formGroupName="yield">
         One beautiful
         <div class="input-group">
@@ -70,12 +79,13 @@
             (in)
           </label>
         </div>
+        baby
       </div>
     </div>
   </section>
-  <!-- Section 1 END -->
-  <!-- Section 2 START -->
-  <section *ngIf="activeSection === 2" formGroupName="birthDateGuess">
+  <!-- Section 2 END -->
+  <!-- Section 3 START -->
+  <section *ngIf="activeSection === 3" formGroupName="birthDateGuess">
     <h1 class="bearline">
       Guess the Birth Date
     </h1>
@@ -104,9 +114,9 @@
     </div>
 
   </section>
-  <!-- Section 2 END -->
-  <!-- Section 3 START -->
-  <section *ngIf="activeSection === 3" formGroupName="guessingGame">
+  <!-- Section 3 END -->
+  <!-- Section 4 START -->
+  <section *ngIf="activeSection === 4" formGroupName="guessingGame">
     <h1 class="bearline">
       Oliver or Baby Girl
     </h1>
@@ -141,13 +151,13 @@
       </tbody>
     </table>
   </section>
-  <!-- Section 3 END -->
-  <!-- Section 4 START -->
-  <section *ngIf="activeSection === 4" class="text-centered">
+  <!-- Section 4 END -->
+  <!-- Section 5 START -->
+  <section *ngIf="activeSection === 5" class="text-centered">
     <h1 class="bearline">Thank You for Playing!</h1>
-    <p>Please submit your answers before the end of February. We will share a video on Facebook announcing the winners!</p>
+    <p>Please submit your answers before the end of February. We will share a video on Facebook announcing the winners after the baby is born!</p>
     <p>
-      (If you don't use Facebook please provide your phone number here so we can call/text you:
+      <small>If you don't use Facebook please provide your phone number and we will text you the video:</small>
       <label aria-label="your phone number">
         <input type="text" formControlName="phoneNumber" id="phoneNumber">
       </label>
@@ -164,17 +174,17 @@
       Camille, CJ, Oliver + Baby Haviland
     </div>
   </section>
-  <!-- Section 4 END -->
-  <!-- Section 5 START -->
-  <section *ngIf="activeSection === 5" class="text-centered">
+  <!-- Section 5 END -->
+  <!-- Section 6 START -->
+  <section *ngIf="activeSection === 6" class="text-centered">
     <h1 class="bearline">Diaper Raffle</h1>
     <p>To enter please send a pack of diapers by the end of February and you could win a $25 Target gift card!</p>
-    <p>To make it easier to shop, you can visit: <a href="http://tgt.gifts/diapersforbabyhaviland" target="_blank">Diapers for Baby Haviland</a></p>
+    <p>To make it easier to ship, you can visit: <a href="http://tgt.gifts/diapersforbabyhaviland" target="_blank">Diapers for Baby Haviland</a></p>
   </section>
   <!-- Section 5 END -->
 
   <div class="button-group">
-    <button *ngIf="activeSection > 0 && activeSection < 5" type="button" (click)="onPrev()" (keyup.arrowleft)="onPrev()">Prev</button>
-    <button *ngIf="activeSection < 4" type="button" (click)="onNext()" (keyup.arrowright)="onNext()">Next</button>
+    <button *ngIf="activeSection > 0 && activeSection < sectionCount - 1" type="button" (click)="onPrev()" (keyup.arrowleft)="onPrev()">Prev</button>
+    <button *ngIf="activeSection < sectionCount - 2" type="button" (click)="onNext()" (keyup.arrowright)="onNext()">Next</button>
   </div>
 </form>

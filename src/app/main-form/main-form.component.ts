@@ -13,14 +13,14 @@ import { LoaderService } from '../loader.service';
 export class MainFormComponent implements OnInit {
   @HostListener('window:keydown', ['$event'])
   handleKeydown(event: KeyboardEvent): void {
-    if (event.key === 'ArrowLeft') {
+    if (event.key === 'ArrowLeft' && this.activeSection !== 6) {
       this.onPrev();
-    } else if (event.key === 'ArrowRight' && this.activeSection <= 3) {
+    } else if (event.key === 'ArrowRight' && this.activeSection !== 5) {
       this.onNext();
     }
   }
-  activeSection = 2
-  sectionCount = 6
+  activeSection = 0
+  sectionCount = 7
 
   faHeart = faHeart
   farHeart = farHeart
@@ -87,9 +87,7 @@ export class MainFormComponent implements OnInit {
       })
     }),
     birthDateGuess: this.fb.group({
-      birthMonth: [''],
-      birthDate: [''],
-      name: ['']
+      birthDate: ['']
     }),
     guessingGame: this.fb.group({
       frozenInLab: [''],
@@ -104,6 +102,7 @@ export class MainFormComponent implements OnInit {
       acidReflux: [''],
       mostUltrasounds: [''],
     }),
+    name: [''],
     phoneNumber: ['']
   })
 

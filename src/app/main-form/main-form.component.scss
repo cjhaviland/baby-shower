@@ -7,6 +7,7 @@
 table {
     border-collapse: separate;
     border-spacing: 0.5rem 1rem;
+    font-size: 0.75rem;
 
     th {
         text-align: center;
@@ -28,7 +29,7 @@ table {
     }
 
     label {
-        font-size: 0.75rem;
+        font-size: 0.6rem;
     }
 }
 
@@ -75,4 +76,8 @@ table {
     bottom: 50%;
     left: 15%;
     width: 75%;
+}
+
+.baby-potion {
+    font-size: .85rem;
 }
