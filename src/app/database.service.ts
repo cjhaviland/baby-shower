@@ -18,6 +18,10 @@ export class DatabaseService {
 
   constructor(private http: HttpClient) { }
 
+  getForms() {
+    return this.http.get(this.url, { headers: this.httpHeaders })
+  }
+
   postForm(formBody: DbForm) {
     console.log(formBody)
     return this.http.post(this.url, formBody, { headers: this.httpHeaders})

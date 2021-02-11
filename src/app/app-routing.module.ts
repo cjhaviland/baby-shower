@@ -2,10 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { MainFormComponent } from './main-form/main-form.component';
+import { ReviewComponent } from './main-form/pages/review/review.component';
 
 
 const routes: Routes = [
-  { path: '', component: MainFormComponent }
+  { 
+    path: '', 
+    component: MainFormComponent,
+  },
+  {
+    path: 'review',
+    component: ReviewComponent
+  }
 ];
 
 @NgModule({
