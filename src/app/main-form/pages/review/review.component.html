@@ -1,3 +1,71 @@
-<div *ngIf="forms$ | async as forms">
-    {{ forms | json }}
-</div>
+<section *ngIf="forms$ | async as forms">
+    <h1 class="bearline">Participants!</h1>
+    <div *ngFor="let row of forms">
+        <h6 (click)="setActive(row.name)">{{ row.name }}</h6>
+        <ul *ngIf="activeName === row.name">
+            <li>Phone: {{ row.phoneNumber }}</li>
+            <li>Birthdate Guess: {{ row.birthDate | date: 'shortDate' }}</li>
+            <li>Baby Potion:
+                <ul>
+                    <li>Mama's {{ row.babyPotion.mamaScoop }}</li>
+                    <li>Daddy's {{ row.babyPotion.papaScoop }}</li>
+                    <li>Ollie's {{ row.babyPotion.ollieScoop }}</li>
+                </ul>
+            </li>
+            <li>Weight and Height:
+                <ul>
+                    <li>{{ row.babyPotion.yield.weight }}</li>
+                    <li>{{ row.babyPotion.yield.length }}</li>
+                </ul>
+            </li>
+            <li>Guessing Game:
+                <ul>
+                    <li>
+                        Acid Reflux: {{ row.guessingGame.acidReflux }}
+                        <fa-icon *ngIf="row.guessingGame.acidReflux === 'baby'" [icon]="faCheckSquare"></fa-icon>
+                    </li>
+                    <li>
+                        Frozen in a lab: {{ row.guessingGame.frozenInLab }}
+                        <fa-icon *ngIf="row.guessingGame.frozenInLab === 'baby'" [icon]="faCheckSquare"></fa-icon>
+                    </li>
+                    <li>
+                        Global Pandemic: {{ row.guessingGame.globalPandemic }}
+                        <fa-icon *ngIf="row.guessingGame.globalPandemic === 'baby'" [icon]="faCheckSquare"></fa-icon>
+                    </li>
+                    <li>
+                        Glucose Screening: {{ row.guessingGame.glucoseScreening }}
+                        <fa-icon *ngIf="row.guessingGame.glucoseScreening === 'baby'" [icon]="faCheckSquare"></fa-icon>
+                    </li>
+                    <li>
+                        Lost Weight: {{ row.guessingGame.lostWeight }}
+                        <fa-icon *ngIf="row.guessingGame.lostWeight === 'ollie'" [icon]="faCheckSquare"></fa-icon>
+                    </li>
+                    <li>
+                        Most Ultrasounds: {{ row.guessingGame.mostUltrasounds }}
+                        <fa-icon *ngIf="row.guessingGame.mostUltrasounds === 'baby'" [icon]="faCheckSquare"></fa-icon>
+                    </li>
+                    <li>
+                        Nausea: {{ row.guessingGame.nausea }}
+                        <fa-icon *ngIf="row.guessingGame.nausea === 'baby'" [icon]="faCheckSquare"></fa-icon>
+                    </li>
+                    <li>
+                        Started Showing: {{ row.guessingGame.startedShowing }}
+                        <fa-icon *ngIf="row.guessingGame.startedShowing === 'ollie'" [icon]="faCheckSquare"></fa-icon>
+                    </li>
+                    <li>
+                        Threw Up: {{ row.guessingGame.threwUp }}
+                        <fa-icon *ngIf="row.guessingGame.threwUp === 'ollie'" [icon]="faCheckSquare"></fa-icon>
+                    </li>
+                    <li>
+                        Turned Thirty: {{ row.guessingGame.turnedThirty }}
+                        <fa-icon *ngIf="row.guessingGame.turnedThirty === 'ollie'" [icon]="faCheckSquare"></fa-icon>
+                    </li>
+                    <li>
+                        Years To Conceive: {{ row.guessingGame.yearsToConceive }}
+                        <fa-icon *ngIf="row.guessingGame.yearsToConceive === 'ollie'" [icon]="faCheckSquare"></fa-icon>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</section>
