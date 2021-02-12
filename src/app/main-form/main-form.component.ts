@@ -2,7 +2,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons';
 import { faBaby, faHeart } from '@fortawesome/free-solid-svg-icons';
-import { DatabaseService, DbForm } from '../database.service';
+import { DatabaseService, GameForm } from '../database.service';
 import { LoaderService } from '../loader.service';
 
 @Component({
@@ -87,9 +87,7 @@ export class MainFormComponent implements OnInit {
         length: ['']
       })
     }),
-    birthDateGuess: this.fb.group({
-      birthDate: ['']
-    }),
+    birthDate: [''],
     guessingGame: this.fb.group({
       frozenInLab: [''],
       yearsToConceive: [''],
@@ -129,10 +127,7 @@ export class MainFormComponent implements OnInit {
   }
 
   onSubmit() {
-    let formBody: DbForm = {
-      name: this.gameForm.controls.birthDateGuess.get('name')?.value,
-      form: this.gameForm.value
-    }
+    let formBody: GameForm = this.gameForm.value
     this.db.postForm(formBody).subscribe()
   }
 

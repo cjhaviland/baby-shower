@@ -88,7 +88,7 @@
   </section>
   <!-- Section 2 END -->
   <!-- Section 3 START -->
-  <section *ngIf="activeSection === 3" formGroupName="birthDateGuess">
+  <section *ngIf="activeSection === 3">
     <h1 class="bearline">
       Guess the Birth Date
     </h1>
@@ -99,18 +99,7 @@
       </p>
       <div class="mb">
         <input formControlName="birthDate" type="date" min="2021-02-19" max="2021-03-19">
-        <!-- <label aria-label="birth month guess" for="birthMonth">
-          Month:
-        </label>
-        <input type="text" formControlName="birthMonth" id="birthMonth">  -->
       </div>
-      
-      <!-- <div class="date-box">
-        <span class="date-box_date">Date</span>
-        <span class="date-box_name">Your Name</span>
-        <input class="birth-date-input" type="text" formControlName="birthDate" id="birthDate" aria-label="birth date guess" max="2">
-        <input class="name-input" type="text" formControlName="name" id="name" aria-label="Your name input">
-      </div> -->
       <small>
         (Hint: Our estimated due date is March 12<sup>th</sup>, since she is an IVF baby we most likely won't be allowed to go past 40 weeks.)
       </small>
